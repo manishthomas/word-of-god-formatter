@@ -45,7 +45,7 @@ function handleButtonClick() {
   const firstPartsString = firstParts.map((part) => ' ' + part).join('');
 
   // Log the final string created from `firstParts`
-  // console.log("First Parts String with space in front:", firstPartsString);
+  console.log('First Parts String with space in front:', firstPartsString);
 
   // Process the `lastParts` array
   let combinedString = '';
@@ -79,7 +79,7 @@ function handleButtonClick() {
 *_✝️ദൈവവചനം_*
 🌟🌟🌟🌟🌟🌟🌟
 
-*"${firstParts}"*
+*"${firstPartsString}"*
 
 _(${combinedString})_
 

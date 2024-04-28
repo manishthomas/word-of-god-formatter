@@ -1,57 +1,3 @@
-function processInputs() {
-  // Retrieve input values
-  var input1 = document.getElementById('input1').value.trim();
-  var input2 = document.getElementById('input2').value.trim();
-  var input3 = document.getElementById('input3').value.trim();
-  var input4 = document.getElementById('input4').value.trim();
-  var input5 = document.getElementById('input5').value.trim();
-
-  // Extract first sentences
-  var firstSentence1 = input1.split('\n')[0];
-  var firstSentence2 = input2.split('\n')[0];
-  var firstSentence3 = input3.split('\n')[0];
-  var firstSentence4 = input4.split('\n')[0];
-  var firstSentence5 = input5.split('\n')[0];
-
-  // Extract second sentences and format
-  var secondSentence1 = extractAndFormatSecondSentence(input1);
-  var secondSentence2 = extractAndFormatSecondSentence(input2);
-  var secondSentence3 = extractAndFormatSecondSentence(input3);
-  var secondSentence4 = extractAndFormatSecondSentence(input4);
-  var secondSentence5 = extractAndFormatSecondSentence(input5);
-
-  // Combine formatted sentences
-  var result = '';
-  if (firstSentence1) result += firstSentence1 + ' ';
-  if (firstSentence2) result += firstSentence2 + ' ';
-  if (firstSentence3) result += firstSentence3 + ' ';
-  if (firstSentence4) result += firstSentence4 + ' ';
-  if (firstSentence5) result += firstSentence5 + ' ';
-  result += '. ';
-  if (secondSentence1) result += secondSentence1 + ', ';
-  if (secondSentence2) result += secondSentence2 + ', ';
-  if (secondSentence3) result += secondSentence3 + ', ';
-  if (secondSentence4) result += secondSentence4 + ', ';
-  if (secondSentence5) result += secondSentence5;
-
-  // Display result
-  document.getElementById('output').innerHTML = result;
-}
-function extractAndFormatSecondSentence(input) {
-  var secondSentence = input.split('\n')[1];
-  if (secondSentence) {
-    var numbers = secondSentence.match(/(\d+) : (\d+)/g); // Match all number patterns
-    if (numbers) {
-      var combinedNumbers = numbers.join(', ');
-      var formattedSentence = secondSentence.replace(
-        /(\d+) : (\d+)/g,
-        '[' + combinedNumbers + ']'
-      );
-      return formattedSentence;
-    }
-  }
-  return '';
-}
 function handleButtonClick() {
   // Arrays to hold the first and last parts of each input
   const firstParts = [];
@@ -174,4 +120,15 @@ function showToast(message) {
   }, 2000); // Remove toast after 2 seconds
 }
 
-// Style the toast message
+function handleClearButtonClick() {
+  // Clear each input text area by setting its value to an empty string
+  document.getElementById('textarea1').value = '';
+  document.getElementById('textarea2').value = '';
+  document.getElementById('textarea3').value = '';
+  document.getElementById('textarea4').value = '';
+  document.getElementById('textarea5').value = '';
+}
+
+document
+  .getElementById('clearButton')
+  .addEventListener('click', handleClearButtonClick);

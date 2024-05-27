@@ -63,8 +63,7 @@ body {
     opacity: 0.9;
 }
 
-/* Output textarea styling */
-#output {
+#output,#inputTextarea {
     margin-top: 20px;
     padding: 10px;
     background-color: #f8f8f8;
